@@ -10,7 +10,6 @@ public class StepDefinitions {
         throw new io.cucumber.java.PendingException();
     }
 
-    Reservierung reservierung;
     @Wenn("eine Person reserviert einen Platz")
     public void einePersonReserviertEinenPlatz() {
         // Write code here that turns the phrase above into concrete actions
