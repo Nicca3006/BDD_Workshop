@@ -4,22 +4,20 @@ import io.cucumber.java.de.*;
 
 public class StepDefinitions {
 
+    Restaurant restaurant = new Restaurant();
     @Angenommen("alle Tische sind leer")
     public void alleTischeSindLeer() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        restaurant.neuerTag();
     }
-
+    Reservierung reservierung;
     @Wenn("eine Person reserviert einen Platz")
     public void einePersonReserviertEinenPlatz() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        reservierung = restaurant.reserviere();
     }
 
     @Dann("die Person bekommt einen Platz an Tisch {int}")
-    public void diePersonBekommtEinenPlatzAnTisch(Integer nummer) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void diePersonBekommtEinenPlatzAnTisch(Integer tischNummer) {
+        assert reservierung.getTisch().getNummer() == tischNummer;
     }
 
     @Angenommen("ein Platz an einem bereits teilweise besetzten Tisch ist frei")
