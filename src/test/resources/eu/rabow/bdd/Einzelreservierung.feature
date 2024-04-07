@@ -9,7 +9,7 @@
     Wenn eine Person reserviert einen Platz
     Dann die Person bekommt einen Platz an Tisch 1
   @ready
-  Szenario: Weitere Reservierung an einem teiweise besetzten Tisch
+  Szenario: Weitere Reservierung an einem teilweise besetzten Tisch
     Angenommen ein Platz an einem bereits teilweise besetzten Tisch ist frei
     Wenn eine Person reserviert einen Platz
     Dann die Person bekommt einen Platz an einem bereits teilweise besetzten Tisch
