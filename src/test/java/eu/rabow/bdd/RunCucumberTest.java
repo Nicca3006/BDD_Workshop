@@ -7,7 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:eu/rabow/bdd",
-        snippets = CucumberOptions.SnippetType.CAMELCASE)
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        plugin = {"pretty", "html:target/cucumber-report.html"}
+        )
 
 public class RunCucumberTest {
 
