@@ -1,3 +1,4 @@
+@Ausbaustufe
 Feature: Tischbuchung zu einer bestimmten Uhrzeit
   Als Gast möchte ich einen Tisch für eine bestimmte Uhrzeit buchen,
   damit ich sicherstellen kann, dass mir ein Platz reserviert wird.

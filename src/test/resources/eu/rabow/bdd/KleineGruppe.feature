@@ -1,3 +1,4 @@
+@Ausbaustufe
 Feature: Zusammenlegung von kleinen Gruppen zu größeren Tischrunden
   Als Gast einer kleinen Gruppe möchte ich mit anderen Gruppen zusammengelegt werden,
   damit ich neue Leute kennenlernen kann.

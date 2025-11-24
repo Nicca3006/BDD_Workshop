@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:eu/rabow/bdd",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        plugin = {"pretty", "html:target/cucumber-report.html"}
+        plugin = {"pretty", "html:target/cucumber-report.html"},
+        tags = "not @Ausbaustufe"
         )
 
 public class RunCucumberTest {

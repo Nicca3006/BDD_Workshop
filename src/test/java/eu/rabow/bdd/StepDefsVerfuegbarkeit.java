@@ -2,7 +2,14 @@ package eu.rabow.bdd;
 
 import io.cucumber.java.en.*;
 
+import static org.junit.Assert.*;
+
 public class StepDefsVerfuegbarkeit {
+    private final TestContext testContext;
+
+    public StepDefsVerfuegbarkeit(TestContext testContext) {
+        this.testContext = testContext;
+    }
     @Given("Tisch {int} mit Kapazität {int} Personen")
     public void verfügbarerTischMitKapazitätPersonen(Integer int1, Integer int2) {
         // Write code here that turns the phrase above into concrete actions
@@ -17,8 +24,7 @@ public class StepDefsVerfuegbarkeit {
 
     @Then("die Buchung wird bestätigt")
     public void dieBuchungWirdBestätigt() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
     }
 
     @Then("der Gast erhält eine Bestätigung per E-Mail oder SMS")
@@ -34,9 +40,8 @@ public class StepDefsVerfuegbarkeit {
     }
 
     @Given("Tisch {int} ist von {int}:{int} bis {int}:{int} Uhr frei")
-    public void tischIstVonBisUhrFrei(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void tischIstVonBisUhrFrei(Integer tischNummer, Integer startStunde, Integer startMinute, Integer endStunde, Integer endMinute) {
+        // Tisch ist standardmäßig frei, keine Aktion erforderlich
     }
 
     @Then("verfügbare Tische werden angezeigt")
