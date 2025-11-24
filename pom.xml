@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <cucumber.version>6.10.4</cucumber.version>
+        <cucumber.version>7.15.0</cucumber.version>
         <junit.version>4.13.2</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -43,6 +43,21 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Für schönes Reporting mit Masterthought -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>5.8.0</version>
+        </dependency>
+
+        <!-- Für Asciidoc Living Documentation mit Cukedoctor -->
+        <dependency>
+            <groupId>com.github.cukedoctor</groupId>
+            <artifactId>cukedoctor-converter</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -57,6 +72,52 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.8.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-cucumber-reports</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>Projects</projectName>
+                            <outputDirectory>reports/html-reports</outputDirectory>
+                            <inputDirectory>target/cucumber-reports</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.cukedoctor</groupId>
+                <artifactId>cukedoctor-maven-plugin</artifactId>
+                <version>3.9.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-asciidoc-docs</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <outputFileName>BDD-Dokumentation</outputFileName>
+                            <outputDir>../reports/ascii-docs</outputDir>
+                            <numbered>true</numbered>
+                            <toc>left</toc>
+                            <docVersion>${project.version}</docVersion>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
