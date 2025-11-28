@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Buchungsservice {
-    Map<Integer, Tisch> tische = new HashMap<>();
+    public Map<Integer, Tisch> tische = new HashMap<>();
     private List<Buchung> alleBuchungen = new ArrayList<>();
     private List<Gast> einzelgaeste = new ArrayList<>();
 

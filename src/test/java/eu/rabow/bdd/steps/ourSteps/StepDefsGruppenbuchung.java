@@ -1,4 +1,4 @@
-package eu.rabow.bdd;
+package eu.rabow.bdd.steps.ourSteps;
 
 import io.cucumber.java.en.*;
 

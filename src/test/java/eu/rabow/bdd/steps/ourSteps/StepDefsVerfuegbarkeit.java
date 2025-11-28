@@ -1,8 +1,8 @@
-package eu.rabow.bdd;
+package eu.rabow.bdd.steps.ourSteps;
 
+import eu.rabow.bdd.Buchungsstatus;
 import io.cucumber.java.en.*;
-
-import static org.junit.Assert.*;
+import org.junit.Assert;
 
 public class StepDefsVerfuegbarkeit {
     private final TestContext testContext;
@@ -24,7 +24,7 @@ public class StepDefsVerfuegbarkeit {
 
     @Then("die Buchung wird bestätigt")
     public void dieBuchungWirdBestätigt() {
-        assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
+        Assert.assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
     }
 
     @Then("der Gast erhält eine Bestätigung per E-Mail oder SMS")

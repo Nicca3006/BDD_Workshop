@@ -1,6 +1,9 @@
-package eu.rabow.bdd;
+package eu.rabow.bdd.steps.ourSteps;
 
+import eu.rabow.bdd.*;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
+
 import static org.junit.Assert.*;
 import java.time.LocalTime;
 
@@ -42,7 +45,7 @@ public class StepDefsBuchungskonflikt {
 
     @Then("die Buchung wird abgelehnt")
     public void dieBuchungWirdAbgelehnt() {
-        assertEquals(Buchungsstatus.REJECTED, testContext.getBuchungsergebnis().getBuchungsstatus());
+        Assert.assertEquals(Buchungsstatus.REJECTED, testContext.getBuchungsergebnis().getBuchungsstatus());
     }
 
     @Then("der Gast erhält die Information, dass keine Kapazitäten verfügbar sind")
@@ -86,7 +89,7 @@ public class StepDefsBuchungskonflikt {
 
     @Then("die Kapazitäten sind für diese Uhrzeit reserviert")
     public void dieKapazitätenSindFürDieseUhrzeitReserviert() {
-        assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
+        Assert.assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
     }
 
 

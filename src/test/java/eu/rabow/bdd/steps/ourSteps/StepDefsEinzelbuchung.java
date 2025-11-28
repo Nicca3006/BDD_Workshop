@@ -1,6 +1,11 @@
-package eu.rabow.bdd;
+package eu.rabow.bdd.steps.ourSteps;
 
+import eu.rabow.bdd.Buchungsergebnis;
+import eu.rabow.bdd.Buchungsstatus;
+import eu.rabow.bdd.Gast;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
+
 import static org.junit.Assert.*;
 
 public class StepDefsEinzelbuchung {
@@ -36,13 +41,13 @@ public class StepDefsEinzelbuchung {
 
     @Then("der Gast sieht die Zusammensetzung der Tischgruppe")
     public void derGastSiehtDieZusammensetzungDerTischgruppe() {
-        assertEquals(Buchungsstatus.PENDING, testContext.getBuchungsergebnis().getBuchungsstatus());
+        Assert.assertEquals(Buchungsstatus.PENDING, testContext.getBuchungsergebnis().getBuchungsstatus());
         assertTrue(testContext.getBuchungsergebnis().getNachricht().contains("Zusammenführung"));
     }
 
     @Then("der Gast kann die Zusammensetzung vor der Buchung ablehnen oder akzeptieren")
     public void derGastKannDieZusammensetzungVorDerBuchungAblehnenOderAkzeptieren() {
-        assertEquals(Buchungsstatus.PENDING, testContext.getBuchungsergebnis().getBuchungsstatus());
+        Assert.assertEquals(Buchungsstatus.PENDING, testContext.getBuchungsergebnis().getBuchungsstatus());
     }
 
     @Then("nach Bestätigung erhält er die Buchungsbestätigung")
@@ -69,7 +74,7 @@ public class StepDefsEinzelbuchung {
     @Then("der Gast wird allein platziert")
     public void derGastWirdAlleinPlatziert() {
         assertTrue(testContext.getBuchungsservice().gastSitztAllein(testContext.getAktuellerGast()));
-        assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
+        Assert.assertEquals(Buchungsstatus.CONFIRMED, testContext.getBuchungsergebnis().getBuchungsstatus());
     }
 
     @Then("der Gast wird informiert, dass keine Zusammensetzung möglich ist")

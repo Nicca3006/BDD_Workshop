@@ -1,4 +1,9 @@
-package eu.rabow.bdd;
+package eu.rabow.bdd.steps.ourSteps;
+
+import eu.rabow.bdd.Buchungsergebnis;
+import eu.rabow.bdd.Buchungsservice;
+import eu.rabow.bdd.Gast;
+import eu.rabow.bdd.Tisch;
 
 import java.util.List;
 
